@@ -24,7 +24,7 @@ namespace CleanUp
 
         }
 
-        public static ManagementObjectCollection GetMOCtesthest()
+        public static ManagementObjectCollection GetMOCBootDevice()
         {
             
             ManagementScope scope = new ManagementScope("\\\\.\\ROOT\\cimv2");
@@ -69,7 +69,6 @@ namespace CleanUp
             ManagementObject managementObject = new ManagementObject("Win32_LogicalDisk.DeviceID=\"" + drive + ":\"");
 
             managementObject.Get();
-            //Console.WriteLine(managementObject["VolumeSerialNumber"].ToString());
 
             return managementObject["VolumeSerialNumber"].ToString();
 
@@ -79,8 +78,6 @@ namespace CleanUp
         {
             ManagementObjectSearcher windowsServicesSearcher = new ManagementObjectSearcher("root\\cimv2", "select * from Win32_Service");
             ManagementObjectCollection objectCollection = windowsServicesSearcher.Get();
-
-            Console.WriteLine("There are {0} Windows services: ", objectCollection.Count);
 
             return objectCollection;
         }

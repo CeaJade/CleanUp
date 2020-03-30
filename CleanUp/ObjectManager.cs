@@ -19,9 +19,9 @@ namespace CleanUp
             return DalManager.GetObjectQuery();
         }
 
-        public static ManagementObjectCollection MOCtesthest()
+        public static ManagementObjectCollection MOCBootDevice()
         {
-            return DalManager.GetMOCtesthest();
+            return DalManager.GetMOCBootDevice();
         }
 
         public static ManagementObjectCollection HeadLayer()
@@ -43,5 +43,7 @@ namespace CleanUp
         {
             return DalManager.GetLISTAllServices();
         }
+
+
     }
 }

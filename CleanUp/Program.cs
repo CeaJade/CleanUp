@@ -18,7 +18,7 @@ namespace CleanUp
                 do
                 {
                     valid = true;
-                    Console.Write("1) Disk Data \n2) Object Management List \n3) Head Layer \n4) Test \n5) List of all services \n6) Exit program \nInput:");
+                    Console.Write("1) Disk Data \n2) Object Management List \n3) Head Layer \n4) Boot Device \n5) List of all services \n6) Exit program \nInput:");
                     if (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > 6)
                     {
                         Console.WriteLine("Invalid input");
@@ -74,21 +74,19 @@ namespace CleanUp
                         break;
 
                     case 4:
-                        Console.WriteLine("testhest start\n");
-
                         //enumerate the collection.
-                        foreach (ManagementObject m in ObjectManager.MOCtesthest())
+                        foreach (ManagementObject m in ObjectManager.MOCBootDevice())
                         {
                             // access properties of the WMI object
                             Console.WriteLine("BootDevice : {0}", m["BootDevice"]);
                         }
-
-                        Console.WriteLine("\ntesthest slut");
                         break;
 
                     case 5:
                         Console.WriteLine("process søgning");
-                        foreach (ManagementObject windowsService in ObjectManager.LISTAllServices())
+                        ManagementObjectCollection objectCollection = ObjectManager.LISTAllServices();
+                        Console.WriteLine("There are {0} Windows services: ", objectCollection.Count);
+                        foreach (ManagementObject windowsService in objectCollection)
                         {
                             PropertyDataCollection serviceProperties = windowsService.Properties;
                             foreach (PropertyData serviceProperty in serviceProperties)
