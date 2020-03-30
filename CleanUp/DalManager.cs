@@ -69,7 +69,7 @@ namespace CleanUp
             ManagementObject managementObject = new ManagementObject("Win32_LogicalDisk.DeviceID=\"" + drive + ":\"");
 
             managementObject.Get();
-            Console.WriteLine(managementObject["VolumeSerialNumber"].ToString());
+            //Console.WriteLine(managementObject["VolumeSerialNumber"].ToString());
 
             return managementObject["VolumeSerialNumber"].ToString();
 

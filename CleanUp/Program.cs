@@ -44,9 +44,7 @@ namespace CleanUp
 
                             Console.WriteLine("---------------------------------------------------");
                         }
-
-                        Console.Write("Hard disk serial: ");
-                        ObjectManager.HardDiskSerialNumber();
+                        Console.Write("Hard disk serial: " + ObjectManager.HardDiskSerialNumber());
                         break;
 
                     case 2:
